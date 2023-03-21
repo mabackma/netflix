@@ -10,6 +10,7 @@ def delete_ratings_by_title_id(cursor):
 
     id_tuple = cursor.fetchall()
 
+    print()
     shown_titles = set()
     for item in id_tuple:
         if item['rating'] and item['id'] not in shown_titles:
@@ -22,7 +23,7 @@ def delete_ratings_by_title_id(cursor):
 
     show_all_ratings(cursor, id_title)
 
-    user = input("Anna käyttäjän tunnus (sähköposti) jonka arvostelun haluat poistaa: ")
+    user = input("\nAnna käyttäjän tunnus (sähköposti) jonka arvostelun haluat poistaa: ")
 
     query = ("DELETE FROM ratings "
              "WHERE titles_id = (%s) AND users_id = (SELECT id FROM users WHERE email = (%s))")

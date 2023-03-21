@@ -15,6 +15,7 @@ def items_all(cursor):
         print("\nEi nimikkeitä.")
 
 
+# Tulostaa nimikkeiden kaikki tiedot.
 def print_titles(titles):
 
     for title in titles:
@@ -23,6 +24,7 @@ def print_titles(titles):
               f"Suositusikäraja: {title['age_rating']}\nTyyppi: {title['media_type']}")
 
 
+# Tulostaa vain id:n ja nimen nimikkeistä.
 def show_titles(cursor):
 
     query = ("SELECT id, name FROM titles")

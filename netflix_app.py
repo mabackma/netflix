@@ -1,3 +1,4 @@
+import os
 import mysql.connector
 
 from items.addactor import add_actor_to_title
@@ -25,6 +26,7 @@ connection = None
 cursor = None
 
 while True:
+    os.system('cls')
     choice = input("*******************************************************************\n"
                    "*                             NETFLIX                             *\n"
                    "*******************************************************************\n"

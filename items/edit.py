@@ -5,7 +5,7 @@ from items.byid import show_title_details
 def edit(cursor):
 
     show_titles(cursor)
-    title_id = input("\nAnna muokattavan nimikkeen id\n")
+    title_id = input("\nAnna muokattavan nimikkeen id: ")
 
     show_title_details(cursor, title_id)
 
