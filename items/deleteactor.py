@@ -6,10 +6,10 @@ def delete_actors_from_title(cursor):
 
     # Näytetään nimikkeet joista voidaan poistaa näyttelijä.
     show_titles(cursor)
-    title_id = input("\nAnna nimikkeen id josta haluat poistaa näyttelijä: ")
+    title_id = input("\nAnna nimikkeen id josta haluat poistaa näyttelijän: ")
 
     # Näytetään näyttelijät joita voidaan poistaa nimikkeestä.
-    show_actors_in_title(cursor, title_id)
+    show_actors_in_title(cursor, title_id, True)
     actor_id = input("\nAnna poistettavan näyttelijän id: ")
 
     # Poistetaan näyttelijä nimikkeestä.

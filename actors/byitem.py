@@ -5,7 +5,7 @@ def actors(cursor):
 
     show_titles(cursor)
 
-    id = input("\nAnna elokuvan tai sarjan id: ")
+    id = input("\nAnna elokuvan tai sarjan id, jonka näyttelijät haluat nähdä: ")
 
     query = ("SELECT name FROM titles "
              "WHERE titles.id = (%s)")
@@ -18,10 +18,10 @@ def actors(cursor):
     else:
         print("Nimikettä ei löytynyt.")
 
-    show_actors_in_title(cursor, id)
+    show_actors_in_title(cursor, id, False)
 
 
-def show_actors_in_title(cursor, id):
+def show_actors_in_title(cursor, id, is_id):
 
     query = ("SELECT actors.id, actors.first_name, actors.last_name "
              "FROM actors "
@@ -32,8 +32,16 @@ def show_actors_in_title(cursor, id):
 
     actors_in_title = cursor.fetchall()
 
+    with_id = ""
+    without_id = ""
     if actors_in_title:
         for actor in actors_in_title:
-            print(str(actor['id']) + ". " + actor['first_name'] + " " + actor['last_name'])
+            with_id += str(actor['id']) + ". " + actor['first_name'] + " " + actor['last_name'] + "\n"
+            without_id += actor['first_name'] + " " + actor['last_name'] + ", "
+        if is_id:
+            print(with_id)
+        else:
+            without_id = without_id[:-2]
+            print(without_id)
     else:
-        print("\nEi näyttelijöitä.")
+        print("Ei näyttelijöitä.")

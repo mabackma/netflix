@@ -1,11 +1,21 @@
 def add(cursor):
 
-    name = input("Anna nimi (pakollinen): ")
+    name = input("\nAnna nimi (pakollinen): ")
     year = input("Anna ilmestymisvuosi (pakollinen): ")
     running_time = input("Anna nimikkeen kesto (pakollinen): ")
     description = input("Anna kuvaus (vapaaehtoinen): ")
     age_rating = input("Anna suositusikäraja: ")
-    type = input("Anna nimikkeen tyyppi numerona (pakollinen, leffa(1)|äänikirja(2)|peli(3)): ")
+
+    # Haetaan media tyypit.
+    query = "SELECT id, type FROM media_types;"
+    cursor.execute(query, )
+    media_types = cursor.fetchall()
+    all_types = ""
+    if media_types:
+        for media_type in media_types:
+            all_types += f"{media_type['type']}({media_type['id']})|"
+        all_types = all_types[:-1]
+        type = input(f"Anna nimikkeen tyyppi numerona (pakollinen, {all_types}): ")
 
     # Lisätään nimike tietokantaan.
     query = ("INSERT INTO titles(name, year, running_time, description, age_rating, media_types_id) "
