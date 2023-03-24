@@ -134,6 +134,7 @@ while True:
         input("\n--------------------------------\nPaina Enter jatkaaksesi.")
 
     except mysql.connector.Error as err:
+        connection.rollback()
         print()
         print(err)
         input("\n--------------------------------\nPaina Enter jatkaaksesi.")

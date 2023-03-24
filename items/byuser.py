@@ -1,6 +1,6 @@
 def by_user(cursor):
 
-    user = input("\nAnna sähköpostiosoitteesi: ")
+    user = input("\nAnna käyttäjätunnus (sähköpostiosoitteesi): ")
 
     # Haetaan tietyn käyttäjän tilaamat nimikkeet.
     query = ("SELECT titles.name "
