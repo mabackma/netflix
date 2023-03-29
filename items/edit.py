@@ -20,7 +20,7 @@ def edit(cursor):
     current_age_rating = result['age_rating']
 
     # Pyydetään uudet tiedot nimikkeeseen.
-    new_name = input("Uusi nimike: ")
+    new_name = input("\nUusi nimike: ")
     new_year = input("Uusi julkaisuvuosi: ")
     new_running_time = input("Uusi kesto minuuteissa: ")
     new_description =  input("Uusi kuvaus: ")

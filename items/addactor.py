@@ -10,8 +10,11 @@ def add_actor_to_title(cursor):
 
     # Näytetään lista näyttelijöistä joista voidaan valita lisättävä näyttelijä.
     actors_all(cursor)
-    is_actor = input(f"\nLöytyykö näyttelijä jonka haluat lisätä listasta (K/E)?\n"
-                     f"(Jos näyttelijää ei löydy listasta, niin voit lisätä näyttelijän toiminnolla 14): ")
+    while True:
+        is_actor = input(f"\nLöytyykö näyttelijä jonka haluat lisätä listasta (K/E)?\n"
+                     f"(Jos näyttelijää ei löydy, voit lisätä näyttelijän tietokantaan toiminnolla 14): ")
+        if is_actor.upper() == "K" or is_actor.upper() == "E":
+            break
 
     # Lisätään nimikkeeseen näyttelijä vain jos se on näyttelijälistassa.
     if is_actor.upper() == "K":

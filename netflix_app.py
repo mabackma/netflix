@@ -128,7 +128,7 @@ while True:
             with connection.cursor(prepared=True, dictionary=True) as cursor:
                 edit_actor(cursor)
             connection.commit()
-        if choice == "Q" or choice == "q":
+        if choice.upper() == "Q":
             break
 
         input("\n--------------------------------\nPaina Enter jatkaaksesi.")
