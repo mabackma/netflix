@@ -57,80 +57,52 @@ while True:
     try:
         connection = mysql.connector.connect(user='root', database='netflix')
 
-        if choice == str(1):
-            with connection.cursor(prepared=True, dictionary=True) as cursor:
+        with connection.cursor(prepared=True, dictionary=True) as cursor:
+            if choice == str(1):
                 items_all(cursor)
-        if choice == str(2):
-            with connection.cursor(prepared=True, dictionary=True) as cursor:
+            if choice == str(2):
                 by_category(cursor)
-        if choice == str(3):
-            with connection.cursor(prepared=True, dictionary=True) as cursor:
+            if choice == str(3):
                 ten_most_liked(cursor)
-        if choice == str(4):
-            with connection.cursor(prepared=True, dictionary=True) as cursor:
+            if choice == str(4):
                 ten_most_watched(cursor)
-        if choice == str(5):
-            with connection.cursor(prepared=True, dictionary=True) as cursor:
+            if choice == str(5):
                 by_user(cursor)
-        if choice == str(6):
-            with connection.cursor(prepared=True, dictionary=True) as cursor:
+            if choice == str(6):
                 by_actor(cursor)
-        if choice == str(7):
-            with connection.cursor(prepared=True, dictionary=True) as cursor:
+            if choice == str(7):
                 title_by_id(cursor)
-        if choice == str(8):
-            with connection.cursor(prepared=True, dictionary=True) as cursor:
+            if choice == str(8):
                 actors_all(cursor)
-        if choice == str(9):
-            with connection.cursor(prepared=True, dictionary=True) as cursor:
+            if choice == str(9):
                 actors(cursor)
-        if choice == str(10):
-            with connection.cursor(prepared=True, dictionary=True) as cursor:
+            if choice == str(10):
                 actor_by_id(cursor)
 
-        if choice == str(11):
-            with connection.cursor(prepared=True, dictionary=True) as cursor:
+            if choice == str(11):
                 add_rating(cursor)
-            connection.commit()
-        if choice == str(12):
-            with connection.cursor(prepared=True, dictionary=True) as cursor:
+            if choice == str(12):
                 delete_ratings_by_title_id(cursor)
-            connection.commit()
-        if choice == str(13):
-            with connection.cursor(prepared=True, dictionary=True) as cursor:
+            if choice == str(13):
                 add_title(cursor)
-            connection.commit()
-        if choice == str(14):
-            with connection.cursor(prepared=True, dictionary=True) as cursor:
+            if choice == str(14):
                 add_actor(cursor)
-            connection.commit()
-        if choice == str(15):
-            with connection.cursor(prepared=True, dictionary=True) as cursor:
+            if choice == str(15):
                 add_actor_to_title(cursor)
-            connection.commit()
-        if choice == str(16):
-            with connection.cursor(prepared=True, dictionary=True) as cursor:
+            if choice == str(16):
                 delete_actors_from_title(cursor)
-            connection.commit()
-        if choice == str(17):
-            with connection.cursor(prepared=True, dictionary=True) as cursor:
+            if choice == str(17):
                 delete_actor(cursor)
-            connection.commit()
-        if choice == str(18):
-            with connection.cursor(prepared=True, dictionary=True) as cursor:
+            if choice == str(18):
                 delete_item(cursor)
-            connection.commit()
-        if choice == str(19):
-            with connection.cursor(prepared=True, dictionary=True) as cursor:
+            if choice == str(19):
                 edit_title(cursor)
-            connection.commit()
-        if choice == str(20):
-            with connection.cursor(prepared=True, dictionary=True) as cursor:
+            if choice == str(20):
                 edit_actor(cursor)
-            connection.commit()
-        if choice.upper() == "Q":
-            break
+            if choice.upper() == "Q":
+                break
 
+        connection.commit()
         input("\n--------------------------------\nPaina Enter jatkaaksesi.")
 
     except mysql.connector.Error as err:
